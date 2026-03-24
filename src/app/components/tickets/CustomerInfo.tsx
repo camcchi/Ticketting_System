@@ -1,4 +1,4 @@
-import { User } from "../../types";
+import type { User } from "../../types";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Copy, Building2, ExternalLink, ChevronRight, ChevronDown, ListTodo, Clock, Network, Fingerprint, Puzzle, CalendarDays, Webhook } from "lucide-react";
 
