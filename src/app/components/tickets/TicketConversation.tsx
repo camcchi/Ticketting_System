@@ -29,10 +29,7 @@ export function TicketConversation({ ticket }: TicketConversationProps) {
             </Badge>
           </div>
         </div>
-        <Button variant="outline" size="sm" className="h-8 text-[13px] font-semibold text-[#137A87] border-slate-200 hover:bg-[#e6f2f3] gap-1.5 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5" />
-          Add AI summary
-        </Button>
+
       </div>
 
       {/* ── MESSAGES FEED ── */}

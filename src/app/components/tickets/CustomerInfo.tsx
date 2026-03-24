@@ -99,13 +99,7 @@ export function CustomerInfo({ customer }: CustomerInfoProps) {
             <ChevronDown className="w-4 h-4 text-slate-400" />
           </button>
 
-          <button className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 hover:bg-slate-50 w-full">
-            <span className="flex items-center gap-3 text-[13px] font-semibold text-slate-700">
-              <Network className="w-4 h-4 text-orange-500" />
-              HubSpot CRM (Sample)
-            </span>
-            <ChevronDown className="w-4 h-4 text-slate-400" />
-          </button>
+
         </div>
       </div>
 

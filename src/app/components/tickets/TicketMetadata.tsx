@@ -114,11 +114,17 @@ export function TicketMetadata({ ticket, onUpdate }: TicketMetadataProps) {
           </div>
 
           {/* Reference Number */}
-          <div className="flex flex-col gap-1.5 pb-2">
-            <label className="text-[12px] text-slate-500 font-medium">Reference Number</label>
-            <button className="flex items-center justify-end h-8 border-b border-white hover:bg-slate-50 w-full">
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-            </button>
+          <div className="flex flex-col gap-3 pb-2 pt-2">
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[12px] text-slate-500 font-medium">Reference Number</label>
+              <input 
+                type="text" 
+                className="h-8 px-3 text-[13px] text-slate-700 border border-slate-200 rounded-md focus:outline-none focus:ring-1 focus:ring-[#137A87] focus:border-[#137A87] transition-colors w-full bg-white shadow-sm"
+              />
+            </div>
+            <Button className="w-full h-8 text-[13px] font-semibold bg-[#137A87] hover:bg-[#0e5c66] text-white rounded-md shadow-sm transition-colors">
+              Update
+            </Button>
           </div>
         </div>
       </div>
