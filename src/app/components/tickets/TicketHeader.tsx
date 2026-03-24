@@ -12,14 +12,18 @@ import {
   ChevronLeft,
   ChevronRight,
   Minus,
-  Settings
+  Settings,
+  PanelRightClose,
+  PanelRightOpen
 } from "lucide-react";
 
 interface TicketHeaderProps {
   ticket: Ticket;
+  isRightPanelOpen?: boolean;
+  onToggleRightPanel?: () => void;
 }
 
-export function TicketHeader({ ticket }: TicketHeaderProps) {
+export function TicketHeader({ ticket, isRightPanelOpen = true, onToggleRightPanel }: TicketHeaderProps) {
   return (
     <div className="flex items-center justify-between px-4 py-3 bg-white w-full">
       {/* ── LEFT ACTIONS ── */}
@@ -74,6 +78,14 @@ export function TicketHeader({ ticket }: TicketHeaderProps) {
           </Button>
         </div>
         <div className="h-4 w-px bg-slate-200 ml-1 mr-1" />
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={onToggleRightPanel}
+          className="w-8 h-8 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-100 flex-shrink-0"
+        >
+          {isRightPanelOpen ? <PanelRightClose className="w-4 h-4" /> : <PanelRightOpen className="w-4 h-4" />}
+        </Button>
         <Button variant="ghost" size="icon" className="w-8 h-8 rounded-md text-slate-500 hover:text-slate-800 hover:bg-slate-100 flex-shrink-0">
           <Settings className="w-4 h-4" />
         </Button>

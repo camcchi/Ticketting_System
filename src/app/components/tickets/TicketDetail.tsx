@@ -1,4 +1,5 @@
-import { Ticket } from "../../types";
+import { useState } from "react";
+import type { Ticket } from "../../types";
 import { ScrollArea } from "../ui/scroll-area";
 import { TicketHeader } from "./TicketHeader";
 import { TicketConversation } from "./TicketConversation";
@@ -11,11 +12,17 @@ interface TicketDetailProps {
 }
 
 export function TicketDetail({ ticket, onUpdate }: TicketDetailProps) {
+  const [isRightPanelOpen, setIsRightPanelOpen] = useState(true);
+
   return (
     <div className="h-full flex flex-col bg-white overflow-hidden">
       {/* ── TOP ACTION BAR ── */}
       <div className="flex-shrink-0 border-b border-slate-200 shadow-xs z-20">
-        <TicketHeader ticket={ticket} />
+        <TicketHeader 
+          ticket={ticket} 
+          isRightPanelOpen={isRightPanelOpen}
+          onToggleRightPanel={() => setIsRightPanelOpen(!isRightPanelOpen)}
+        />
       </div>
 
       {/* ── 3-COLUMN MAIN LAYOUT ── */}
@@ -28,7 +35,9 @@ export function TicketDetail({ ticket, onUpdate }: TicketDetailProps) {
           </ScrollArea>
         </div>
 
-        {/* Column 2: Ticket Properties */}
+        {isRightPanelOpen && (
+          <>
+            {/* Column 2: Ticket Properties */}
         <div className="w-[300px] flex-shrink-0 flex flex-col border-l border-slate-200 bg-[#f8fafb]/30 shadow-sm z-10">
           <ScrollArea className="flex-1 h-full">
             <TicketMetadata ticket={ticket} onUpdate={onUpdate} />
@@ -45,6 +54,9 @@ export function TicketDetail({ ticket, onUpdate }: TicketDetailProps) {
         <div className="w-[320px] flex-shrink-0 flex flex-col border-l border-slate-200 overflow-hidden bg-white">
           <CustomerInfo customer={ticket.customer} />
         </div>
+
+          </>
+        )}
 
       </div>
     </div>
