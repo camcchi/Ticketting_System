@@ -1,19 +1,27 @@
 import { Ticket } from "../../types";
-import { Clock, ExternalLink, ChevronDown, Plus } from "lucide-react";
+import { Clock, ExternalLink, ChevronDown, Plus, PanelRightClose } from "lucide-react";
 import { Button } from "../ui/button";
 
 interface TicketMetadataProps {
   ticket: Ticket;
   onUpdate?: (ticket: Ticket) => void;
+  onClose?: () => void;
 }
 
-export function TicketMetadata({ ticket, onUpdate }: TicketMetadataProps) {
+export function TicketMetadata({ ticket, onUpdate, onClose }: TicketMetadataProps) {
   return (
     <div className="flex flex-col">
       {/* ── STATUS & SLA BLOCK ── */}
       <div className="p-5 border-b border-slate-200">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-[15px] font-semibold text-[#0B3A42] capitalize">{ticket.status}</h3>
+          <div className="flex items-center gap-2">
+            {onClose && (
+              <Button variant="ghost" size="icon" onClick={onClose} className="w-7 h-7 text-slate-400 hover:text-slate-600 bg-white border border-slate-200">
+                <PanelRightClose className="w-4 h-4" />
+              </Button>
+            )}
+            <h3 className="text-[15px] font-semibold text-[#0B3A42] capitalize">{ticket.status}</h3>
+          </div>
           <Button variant="ghost" size="icon" className="w-6 h-6 text-slate-400 hover:text-slate-600">
             <ExternalLink className="w-3.5 h-3.5" />
           </Button>

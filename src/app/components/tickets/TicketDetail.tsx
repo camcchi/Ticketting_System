@@ -40,7 +40,7 @@ export function TicketDetail({ ticket, onUpdate }: TicketDetailProps) {
             {/* Column 2: Ticket Properties */}
         <div className="w-[300px] flex-shrink-0 flex flex-col border-l border-slate-200 bg-[#f8fafb]/30 shadow-sm z-10">
           <ScrollArea className="flex-1 h-full">
-            <TicketMetadata ticket={ticket} onUpdate={onUpdate} />
+            <TicketMetadata ticket={ticket} onUpdate={onUpdate} onClose={() => setIsRightPanelOpen(false)} />
           </ScrollArea>
           
           <div className="p-4 border-t border-slate-200 bg-white">
