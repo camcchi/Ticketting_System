@@ -1,6 +1,6 @@
 import type { User } from "../../types";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Copy, Building2, ExternalLink, ChevronRight, ChevronDown, ListTodo, Clock, Network, Fingerprint, Puzzle, CalendarDays, Webhook } from "lucide-react";
+import { Copy, Building2, ExternalLink, ChevronRight, ChevronDown, ListTodo, Clock, Network, Fingerprint, Puzzle, CalendarDays, Webhook, User as UserIcon } from "lucide-react";
 
 interface CustomerInfoProps {
   customer: User;
@@ -19,7 +19,7 @@ export function CustomerInfo({ customer }: CustomerInfoProps) {
       <div className="flex-1 flex flex-col min-w-0">
         <div className="p-4 flex items-center justify-between group">
           <div className="flex items-center gap-2 text-[13px] font-semibold text-slate-700">
-            <User className="w-4 h-4 text-slate-500" />
+            <UserIcon className="w-4 h-4 text-slate-500" />
             Contact info <span className="text-slate-300 font-light mx-0.5">|</span> <span className="text-[#137A87] hover:underline cursor-pointer">Edit</span>
           </div>
           <ChevronDown className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -112,7 +112,7 @@ export function CustomerInfo({ customer }: CustomerInfoProps) {
       {/* ── EXTREME RIGHT EDGE MENU ── */}
       <div className="w-10 bg-slate-50 border-l border-slate-200 flex flex-col items-center py-4 gap-4 flex-shrink-0">
         <button className="w-6 h-6 rounded flex items-center justify-center text-slate-400 hover:text-[#137A87] hover:bg-white border border-transparent hover:border-slate-200 transition-all">
-          <User className="w-3.5 h-3.5" />
+          <UserIcon className="w-3.5 h-3.5" />
         </button>
         <button className="w-6 h-6 rounded flex items-center justify-center text-slate-400 hover:text-[#137A87] hover:bg-white border border-transparent hover:border-slate-200 transition-all">
           <Puzzle className="w-3.5 h-3.5" />
