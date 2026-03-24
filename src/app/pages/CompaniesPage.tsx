@@ -68,9 +68,7 @@ export function CompaniesPage() {
             <Button variant="outline" size="sm" className="h-8 gap-1.5 text-slate-600 border-slate-200 hover:bg-slate-50 transition-colors shadow-sm rounded-lg font-medium text-xs">
               <Download className="w-3.5 h-3.5" /> Import
             </Button>
-            <Button variant="outline" size="sm" className="h-8 gap-1.5 text-slate-600 border-slate-200 hover:bg-slate-50 transition-colors shadow-sm rounded-lg font-medium text-xs">
-              <RefreshCw className="w-3.5 h-3.5" /> Sync
-            </Button>
+
             
             <div className="h-4 w-[1px] bg-slate-200 mx-1" />
             

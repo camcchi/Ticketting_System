@@ -89,10 +89,7 @@ export function ContactList({
               Import
             </Button>
           </ImportContactsModal>
-          <Button variant="ghost" size="sm" className="h-8 px-2.5 gap-2 text-slate-600 hover:text-[#137A87] hover:bg-[#f0fafa] text-xs font-bold">
-            <RefreshCw className="w-3.5 h-3.5" />
-            Sync
-          </Button>
+
           
           <div className="h-4 w-[1px] bg-slate-100 mx-2" />
 
