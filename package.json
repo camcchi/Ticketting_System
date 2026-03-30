@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "push": "git add . && git commit -m \"Auto-update: A.S.S.I.S.T Branding & AI Features\" && git push origin main",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

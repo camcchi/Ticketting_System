@@ -23,6 +23,7 @@ interface TicketFiltersProps {
   onNewEmail?: () => void;
   onNewMessage?: () => void;
   onNewContact?: () => void;
+  onNewCompany?: () => void;
 }
 
 export function TicketFilters({ 
@@ -32,7 +33,8 @@ export function TicketFilters({
   onNewTicket,
   onNewEmail,
   onNewMessage,
-  onNewContact
+  onNewContact,
+  onNewCompany
 }: TicketFiltersProps) {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [shortcutsEnabled, setShortcutsEnabled] = useState(true);
@@ -95,7 +97,7 @@ export function TicketFilters({
                 { label: "Email",   Icon: Mail,          onClick: () => setTimeout(() => onNewEmail?.(), 0) },
                 { label: "Message", Icon: MessageSquare, onClick: () => setTimeout(() => onNewMessage?.(), 0) },
                 { label: "Contact", Icon: User,          onClick: () => setTimeout(() => onNewContact?.(), 0) },
-                { label: "Company", Icon: Building2,     onClick: () => {} },
+                { label: "Company", Icon: Building2,     onClick: () => setTimeout(() => onNewCompany?.(), 0) },
                 { label: "Agent",   Icon: UserCheck,     onClick: () => {} },
               ].map(({ label, Icon, onClick }) => (
                 <DropdownMenuItem

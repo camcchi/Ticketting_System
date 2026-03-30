@@ -7,13 +7,13 @@ interface AddCompanyModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-const labelClass = "block text-[12px] font-medium text-slate-600 mb-1.5";
+const labelClass = "block text-[13px] font-semibold text-slate-700 mb-2";
 const inputClass =
-  "w-full text-[13px] border border-slate-300 rounded-md px-3 py-[7px] bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#2D4E77]/20 focus:border-[#2D4E77] transition-all placeholder:text-slate-400";
+  "w-full text-[13px] border border-slate-300 rounded-md px-3 py-2 bg-white text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#2D4E77]/30 focus:border-[#2D4E77] transition-all placeholder:text-slate-400";
 const textareaClass =
-  "w-full text-[13px] border border-slate-300 rounded-md px-3 py-2 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#2D4E77]/20 focus:border-[#2D4E77] transition-all placeholder:text-slate-400 resize-y min-h-[80px]";
+  "w-full text-[13px] border border-slate-300 rounded-md px-3 py-2 bg-white text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#2D4E77]/30 focus:border-[#2D4E77] transition-all placeholder:text-slate-400 resize-y min-h-[60px]";
 const selectClass =
-  "w-full text-[13px] border border-slate-300 rounded-md px-3 py-[7px] bg-white text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#2D4E77]/20 focus:border-[#2D4E77] transition-all appearance-none cursor-pointer";
+  "w-full text-[13px] border border-slate-300 rounded-md px-3 py-2 bg-white text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#2D4E77]/30 focus:border-[#2D4E77] transition-all appearance-none cursor-pointer";
 
 const ALL_FIELDS = [
   { id: "description",  label: "Description" },
@@ -72,26 +72,19 @@ export function AddCompanyModal({ open, onOpenChange }: AddCompanyModalProps) {
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
           onInteractOutside={(e) => e.preventDefault()}
         >
-          <div className="relative w-full max-w-[440px] bg-white rounded-lg shadow-2xl flex flex-col max-h-[92vh] overflow-hidden">
-
+          <div className="relative w-full max-w-[480px] bg-white rounded-xl shadow-2xl flex flex-col max-h-[92vh] overflow-hidden">
             {/* ── Header ── */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-slate-200">
-              <Dialog.Title className="text-[17px] font-semibold text-slate-800">
+            <div className="flex items-center justify-between px-8 py-6 border-b border-transparent">
+              <Dialog.Title className="text-[22px] font-bold text-[#0B2545]">
                 Add Company
               </Dialog.Title>
-              <Dialog.Close
-                onClick={handleClose}
-                className="text-slate-400 hover:text-slate-600 transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </Dialog.Close>
             </div>
 
             {/* ── Body ── */}
-            <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
-
+            <div className="flex-1 overflow-y-auto px-8 pb-8 space-y-6">
               {/* Company Name */}
-              <div>
+              <div className="relative pt-2">
+                <div className="absolute left-[-16px] top-[14px] w-[1px] h-12 border-l border-dashed border-slate-300" />
                 <label className={labelClass}>
                   Company Name <span className="text-red-500">*</span>
                 </label>
@@ -100,66 +93,59 @@ export function AddCompanyModal({ open, onOpenChange }: AddCompanyModalProps) {
                   placeholder="Enter a Company Name"
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
-                  className={inputClass}
+                  className="w-full text-[16px] border-[2px] border-slate-800 rounded-md px-4 py-2 bg-white text-slate-800 focus:outline-none shadow-sm font-medium"
                   autoFocus
                 />
               </div>
 
               {/* ── Field Mode Toggle ── */}
-              <div className="flex items-center gap-3 pt-1">
-                <div className="flex items-center gap-1 bg-slate-100 rounded-full p-1">
+              <div className="flex items-center gap-4 pt-1">
+                <div className="flex items-center gap-1 bg-[#EBEEF5] rounded-full p-1 w-fit">
                   <button
                     type="button"
                     onClick={() => setMode("quick")}
-                    className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-medium transition-all ${
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold transition-all ${
                       mode === "quick"
-                        ? "bg-white text-slate-800 shadow-sm"
+                        ? "bg-white text-[#2D4E77] shadow-sm"
                         : "text-slate-500 hover:text-slate-700"
                     }`}
                   >
-                    <span
-                      className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                        mode === "quick" ? "border-[#2D4E77]" : "border-slate-400"
-                      }`}
-                    >
-                      {mode === "quick" && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#2D4E77]" />
-                      )}
-                    </span>
+                    <div className={`w-4 h-4 rounded-full border-[1.5px] flex items-center justify-center ${
+                      mode === "quick" ? "border-[#2D4E77]" : "border-slate-400"
+                    }`}>
+                      {mode === "quick" && <div className="w-2 h-2 rounded-full bg-[#3B82F6]" />}
+                    </div>
                     Quick-add fields
                   </button>
                   <button
                     type="button"
                     onClick={() => setMode("all")}
-                    className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-medium transition-all ${
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold transition-all ${
                       mode === "all"
-                        ? "bg-white text-slate-800 shadow-sm"
+                        ? "bg-white text-[#2D4E77] shadow-sm"
                         : "text-slate-500 hover:text-slate-700"
                     }`}
                   >
-                    <span
-                      className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                        mode === "all" ? "border-[#2D4E77]" : "border-slate-400"
-                      }`}
-                    >
-                      {mode === "all" && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#2D4E77]" />
-                      )}
-                    </span>
+                    <div className={`w-4 h-4 rounded-full border-[1.5px] flex items-center justify-center ${
+                      mode === "all" ? "border-[#2D4E77]" : "border-slate-400"
+                    }`}>
+                      {mode === "all" && <div className="w-2 h-2 rounded-full bg-[#3B82F6]" />}
+                    </div>
                     All fields
                   </button>
                 </div>
+                <div className="h-[2px] flex-1 bg-slate-200" />
               </div>
 
               {/* ── Field Search ── */}
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                 <input
                   type="text"
                   placeholder="Search for a field"
                   value={fieldSearch}
                   onChange={(e) => setFieldSearch(e.target.value)}
-                  className="w-full text-[13px] border border-slate-200 rounded-md pl-9 pr-3 py-[7px] bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#2D4E77]/20 focus:border-[#2D4E77] transition-all placeholder:text-slate-400"
+                  className="w-full text-[13px] border border-slate-300 rounded px-10 py-2 bg-white text-slate-800 focus:outline-none focus:ring-1 focus:ring-[#2D4E77]/30 transition-all placeholder:text-slate-400"
                 />
               </div>
 
@@ -282,18 +268,18 @@ export function AddCompanyModal({ open, onOpenChange }: AddCompanyModalProps) {
             </div>
 
             {/* ── Footer ── */}
-            <div className="flex items-center justify-end gap-2 px-6 py-4 border-t border-slate-200 bg-white">
+            <div className="flex items-center justify-end gap-3 px-8 py-5 border-t border-slate-100 bg-white">
               <button
                 type="button"
                 onClick={handleClose}
-                className="px-4 py-2 text-[13px] font-medium rounded-md border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors"
+                className="px-6 py-2.5 text-sm font-medium rounded-md border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors h-11"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 disabled={!companyName.trim()}
-                className="px-4 py-2 text-[13px] font-semibold rounded-md bg-[#2D4E77] hover:bg-[#243f61] disabled:opacity-50 disabled:cursor-not-allowed text-white transition-colors"
+                className="px-8 py-2.5 text-sm font-semibold rounded-md bg-[#2D4E77] hover:bg-[#243f61] disabled:opacity-50 disabled:cursor-not-allowed text-white transition-colors shadow-sm h-11 flex items-center justify-center"
               >
                 Create company
               </button>

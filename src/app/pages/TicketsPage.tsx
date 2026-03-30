@@ -9,6 +9,7 @@ import { CreateTicketModal } from "../components/tickets/CreateTicketModal";
 import { CreateEmailModal } from "../components/tickets/CreateEmailModal";
 import { CreateMessageModal } from "../components/tickets/CreateMessageModal";
 import { CreateContactModal } from "../components/tickets/CreateContactModal";
+import { AddCompanyModal } from "../components/companies/AddCompanyModal";
 import { ArrowLeft } from "lucide-react";
 
 export function TicketsPage() {
@@ -31,6 +32,7 @@ export function TicketsPage() {
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
   const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isCompanyModalOpen, setIsCompanyModalOpen] = useState(false);
 
   // ── FILTERING & SORTING LOGIC ──
   const processedTickets = useMemo(() => {
@@ -94,6 +96,7 @@ export function TicketsPage() {
       <CreateEmailModal open={isEmailModalOpen} onOpenChange={setIsEmailModalOpen} />
       <CreateMessageModal open={isMessageModalOpen} onOpenChange={setIsMessageModalOpen} />
       <CreateContactModal open={isContactModalOpen} onOpenChange={setIsContactModalOpen} />
+      <AddCompanyModal open={isCompanyModalOpen} onOpenChange={setIsCompanyModalOpen} />
 
       {/* Primary Top Row Header */}
       <TicketFilters
@@ -104,6 +107,7 @@ export function TicketsPage() {
         onNewEmail={() => setIsEmailModalOpen(true)}
         onNewMessage={() => setIsMessageModalOpen(true)}
         onNewContact={() => setIsContactModalOpen(true)}
+        onNewCompany={() => setIsCompanyModalOpen(true)}
       />
 
       {/* ── DETAIL VIEW: ticket is selected ── */}
