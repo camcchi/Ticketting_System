@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ContactFilterOptions } from "../../types";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { Filter, Search, Plus, HelpCircle, Star, LayoutGrid, ChevronDown, Ticket, Mail, MessageSquare, User, Building2, UserCheck } from "lucide-react";
+import { Filter, Search, Plus, HelpCircle, Star, ChevronDown, Ticket, Mail, MessageSquare, User, Building2, UserCheck } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { ContactViewsPopover } from "./ContactViewsPopover";
 import { NotificationsPopover } from "../tickets/NotificationsPopover";
@@ -53,7 +53,7 @@ export function ContactFilters({
 
       {/* ── RIGHT SECTION: NEW, SEARCH, ICONS ── */}
       <div className="flex items-center gap-3">
-        <div className="flex items-center bg-[#137A87] rounded-lg shadow-sm hover:bg-[#0f6370] transition-colors overflow-hidden mr-2">
+        <div className="flex items-center bg-[#2D4E77] rounded-lg shadow-sm hover:bg-[#243f61] transition-colors overflow-hidden mr-2">
           <button className="flex items-center gap-2 h-9 px-4 text-white text-sm font-bold border-r border-white/10 active:scale-95 transition-transform outline-none">
             <Plus className="w-4 h-4 stroke-[3px]" /> 
             New
@@ -103,10 +103,6 @@ export function ContactFilters({
 
           <Button variant="ghost" size="icon" className="w-9 h-9 hover:bg-[#f0fafa] rounded-lg group text-[#137A87]/70 group-hover:text-[#137A87]">
             <HelpCircle className="w-[21px] h-[21px]" />
-          </Button>
-
-          <Button variant="ghost" size="icon" className="w-9 h-9 hover:bg-[#f0fafa] rounded-lg group text-[#137A87]/70 group-hover:text-[#137A87]">
-            <LayoutGrid className="w-[20px] h-[20px]" />
           </Button>
 
           <DropdownMenu>

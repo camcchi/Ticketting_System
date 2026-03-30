@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FilterOptions } from "../../types";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { Filter, Search, Plus, HelpCircle, Star, LayoutGrid, ChevronDown, Ticket, Mail, MessageSquare, User, Building2, UserCheck } from "lucide-react";
+import { Filter, Search, Plus, HelpCircle, Star, ChevronDown, Ticket, Mail, MessageSquare, User, Building2, UserCheck } from "lucide-react";
 import { FilterSidebar } from "./FilterSidebar";
 import { Badge } from "../ui/badge";
 import { ViewsPopover } from "./ViewsPopover";
@@ -20,13 +20,19 @@ interface TicketFiltersProps {
   onFiltersChange: (filters: FilterOptions) => void;
   totalTickets: number;
   onNewTicket?: () => void;
+  onNewEmail?: () => void;
+  onNewMessage?: () => void;
+  onNewContact?: () => void;
 }
 
 export function TicketFilters({ 
   filters, 
   onFiltersChange, 
   totalTickets,
-  onNewTicket 
+  onNewTicket,
+  onNewEmail,
+  onNewMessage,
+  onNewContact
 }: TicketFiltersProps) {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [shortcutsEnabled, setShortcutsEnabled] = useState(true);
@@ -71,7 +77,7 @@ export function TicketFilters({
       <div className="flex items-center gap-3">
         <div className="flex items-center bg-[#137A87] rounded-lg shadow-sm hover:bg-[#0f6370] transition-colors overflow-hidden mr-2">
           <button
-            onClick={onNewTicket}
+            onClick={() => setTimeout(() => onNewTicket?.(), 0)}
             className="flex items-center gap-2 h-9 px-4 text-white text-sm font-bold border-r border-white/10 active:scale-95 transition-transform outline-none"
           >
             <Plus className="w-4 h-4 stroke-[3px]" /> 
@@ -85,10 +91,10 @@ export function TicketFilters({
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-52 bg-white rounded-xl border border-[#137A87]/10 shadow-xl py-1.5 z-50">
               {[
-                { label: "Ticket",  Icon: Ticket,        onClick: onNewTicket },
-                { label: "Email",   Icon: Mail,          onClick: () => {} },
-                { label: "Message", Icon: MessageSquare, onClick: () => {} },
-                { label: "Contact", Icon: User,          onClick: () => {} },
+                { label: "Ticket",  Icon: Ticket,        onClick: () => setTimeout(() => onNewTicket?.(), 0) },
+                { label: "Email",   Icon: Mail,          onClick: () => setTimeout(() => onNewEmail?.(), 0) },
+                { label: "Message", Icon: MessageSquare, onClick: () => setTimeout(() => onNewMessage?.(), 0) },
+                { label: "Contact", Icon: User,          onClick: () => setTimeout(() => onNewContact?.(), 0) },
                 { label: "Company", Icon: Building2,     onClick: () => {} },
                 { label: "Agent",   Icon: UserCheck,     onClick: () => {} },
               ].map(({ label, Icon, onClick }) => (
@@ -122,10 +128,6 @@ export function TicketFilters({
 
           <Button variant="ghost" size="icon" className="w-9 h-9 hover:bg-[#f0fafa] rounded-lg group text-[#137A87]/70 group-hover:text-[#137A87]">
             <HelpCircle className="w-[21px] h-[21px]" />
-          </Button>
-
-          <Button variant="ghost" size="icon" className="w-9 h-9 hover:bg-[#f0fafa] rounded-lg group text-[#137A87]/70 group-hover:text-[#137A87]">
-            <LayoutGrid className="w-[20px] h-[20px]" />
           </Button>
 
           <DropdownMenu>

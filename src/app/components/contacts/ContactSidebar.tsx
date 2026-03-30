@@ -101,7 +101,7 @@ export function ContactSidebar() {
       </div>
 
       <div className="p-4 bg-slate-50/50 mt-auto">
-        <Button className="w-full bg-[#137A87] hover:bg-[#0f6370] text-white font-bold h-11 rounded-lg shadow-sm">
+        <Button className="w-full bg-[#2D4E77] hover:bg-[#243f61] text-white font-bold h-11 rounded-lg shadow-sm">
           Apply
         </Button>
       </div>

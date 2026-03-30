@@ -3,22 +3,27 @@ import {
   Search, 
   Download, 
   Upload, 
-  RefreshCw, 
   ChevronLeft, 
   ChevronRight, 
   MoreVertical,
   Building2,
-  Filter
+  Filter,
+  Plus,
+  PanelRightClose,
+  PanelRightOpen
 } from "lucide-react";
 import { Checkbox } from "../components/ui/checkbox";
 import { Button } from "../components/ui/button";
 import { cn } from "../components/ui/utils";
 import { Input } from "../components/ui/input";
 import { mockCompanies } from "../data/mockData";
+import { AddCompanyModal } from "../components/companies/AddCompanyModal";
 
 export function CompaniesPage() {
   const [selectedIds, setSelectedIds] = useState<number[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleSelectAll = (checked: boolean) => {
     if (checked) {
@@ -34,6 +39,9 @@ export function CompaniesPage() {
 
   return (
     <div className="h-full flex bg-white overflow-hidden">
+      {/* ── Add Company Modal ── */}
+      <AddCompanyModal open={isAddModalOpen} onOpenChange={setIsAddModalOpen} />
+
       {/* ── Main Content Area ── */}
       <div className="flex-1 flex flex-col min-w-0">
         
@@ -62,6 +70,17 @@ export function CompaniesPage() {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* +New Button */}
+            <Button
+              size="sm"
+              onClick={() => setIsAddModalOpen(true)}
+              className="h-8 gap-1.5 bg-[#2D4E77] hover:bg-[#243f61] text-white font-semibold rounded-lg shadow-sm text-xs transition-colors"
+            >
+              <Plus className="w-3.5 h-3.5" /> New
+            </Button>
+
+            <div className="h-4 w-[1px] bg-slate-200 mx-1" />
+
             <Button variant="outline" size="sm" className="h-8 gap-1.5 text-slate-600 border-slate-200 hover:bg-slate-50 transition-colors shadow-sm rounded-lg font-medium text-xs">
               <Upload className="w-3.5 h-3.5" /> Export
             </Button>
@@ -69,7 +88,6 @@ export function CompaniesPage() {
               <Download className="w-3.5 h-3.5" /> Import
             </Button>
 
-            
             <div className="h-4 w-[1px] bg-slate-200 mx-1" />
             
             <div className="flex items-center gap-2">
@@ -84,18 +102,29 @@ export function CompaniesPage() {
               </div>
             </div>
             
-            <Button variant="outline" size="icon" className="w-8 h-8 rounded-lg ml-1 text-slate-500 border-slate-200 hover:bg-slate-50 shadow-sm">
-              <Filter className="w-4 h-4" />
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className={cn(
+                "w-8 h-8 rounded-lg ml-1 border-slate-200 hover:bg-slate-50 shadow-sm transition-colors",
+                isSidebarOpen ? "text-[#137A87]" : "text-slate-500"
+              )}
+              title={isSidebarOpen ? "Close filters" : "Open filters"}
+            >
+              {isSidebarOpen
+                ? <PanelRightClose className="w-4 h-4" />
+                : <PanelRightOpen className="w-4 h-4" />}
             </Button>
           </div>
         </div>
 
         {/* ── Table Header ── */}
         <div className="flex items-center px-6 py-3 border-b border-slate-200 bg-[#f8fafa] text-[11px] font-bold text-slate-600 uppercase tracking-wide">
-          <div className="w-[40px]" /> {/* Checkbox spacer */}
+          <div className="w-[40px]" />
           <div className="flex-1 min-w-[300px]">Company</div>
           <div className="w-[200px]">Contacts</div>
-          <div className="w-[50px]" /> {/* Menu spacer */}
+          <div className="w-[50px]" />
         </div>
 
         {/* ── Table Body ── */}
@@ -133,35 +162,37 @@ export function CompaniesPage() {
       </div>
 
       {/* ── Right Sidebar (Filters) ── */}
-      <div className="w-[280px] border-l border-slate-200 bg-[#f8fafa] flex flex-col flex-shrink-0 z-10 shadow-sm relative">
-        <div className="p-5 border-b border-slate-200 bg-white font-bold text-xs uppercase tracking-wide text-slate-700">
-          Filters
-        </div>
-        
-        <div className="flex-1 p-5 overflow-y-auto">
-          <div className="space-y-1.5 focus-within:text-[#137A87] transition-colors">
-            <label className="text-xs font-semibold text-slate-500">Created</label>
-            <div className="relative">
-              <select className="w-full h-9 pl-3 pr-8 text-sm text-slate-700 bg-white border border-slate-200 rounded-lg appearance-none outline-none focus:ring-2 focus:ring-[#137A87]/20 focus:border-[#137A87]/50 transition-all shadow-sm cursor-pointer">
-                <option value="any">Any time</option>
-                <option value="today">Today</option>
-                <option value="yesterday">Yesterday</option>
-                <option value="this-month">This month</option>
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-slate-400">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+      {isSidebarOpen && (
+        <div className="w-[280px] border-l border-slate-200 bg-[#f8fafa] flex flex-col flex-shrink-0 z-10 shadow-sm relative animate-in slide-in-from-right-2 duration-200">
+          <div className="p-5 border-b border-slate-200 bg-white font-bold text-xs uppercase tracking-wide text-slate-700">
+            Filters
+          </div>
+          
+          <div className="flex-1 p-5 overflow-y-auto">
+            <div className="space-y-1.5 focus-within:text-[#137A87] transition-colors">
+              <label className="text-xs font-semibold text-slate-500">Created</label>
+              <div className="relative">
+                <select className="w-full h-9 pl-3 pr-8 text-sm text-slate-700 bg-white border border-slate-200 rounded-lg appearance-none outline-none focus:ring-2 focus:ring-[#137A87]/20 focus:border-[#137A87]/50 transition-all shadow-sm cursor-pointer">
+                  <option value="any">Any time</option>
+                  <option value="today">Today</option>
+                  <option value="yesterday">Yesterday</option>
+                  <option value="this-month">This month</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-slate-400">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Apply Button Container */}
-        <div className="p-4 border-t border-slate-200 bg-white mt-auto">
-          <Button className="w-full bg-[#8fbfff] hover:bg-[#7aaeff] text-white font-semibold rounded-lg shadow-sm h-10 transition-colors">
-            Apply
-          </Button>
+          {/* Apply Button Container */}
+          <div className="p-4 border-t border-slate-200 bg-white mt-auto">
+            <Button className="w-full bg-[#8fbfff] hover:bg-[#7aaeff] text-white font-semibold rounded-lg shadow-sm h-10 transition-colors">
+              Apply
+            </Button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

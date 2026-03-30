@@ -235,7 +235,7 @@ export function ExportTicketsModal() {
             <Button variant="outline" className="h-10 px-6 rounded-lg text-slate-600 font-bold border-slate-200">Cancel</Button>
           </DialogClose>
           <DialogClose asChild>
-            <Button className="h-10 px-8 rounded-lg bg-[#137A87] hover:bg-[#0e5c66] text-white font-bold shadow-md shadow-[#137A87]/10">Export</Button>
+            <Button className="h-10 px-8 rounded-lg bg-[#2D4E77] hover:bg-[#243f61] text-white font-bold shadow-md shadow-[#2D4E77]/10">Export</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

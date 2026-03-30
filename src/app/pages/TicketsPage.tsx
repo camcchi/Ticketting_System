@@ -6,6 +6,9 @@ import { TicketList } from "../components/tickets/TicketList";
 import { TicketDetail } from "../components/tickets/TicketDetail";
 import { TicketFilters } from "../components/tickets/TicketFilters";
 import { CreateTicketModal } from "../components/tickets/CreateTicketModal";
+import { CreateEmailModal } from "../components/tickets/CreateEmailModal";
+import { CreateMessageModal } from "../components/tickets/CreateMessageModal";
+import { CreateContactModal } from "../components/tickets/CreateContactModal";
 import { ArrowLeft } from "lucide-react";
 
 export function TicketsPage() {
@@ -25,6 +28,9 @@ export function TicketsPage() {
 
   const showCreateTicket = false; // Simplified for now as modal was already handled
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   // ── FILTERING & SORTING LOGIC ──
   const processedTickets = useMemo(() => {
@@ -85,6 +91,9 @@ export function TicketsPage() {
   return (
     <div className="h-full flex flex-col bg-[#f8fafb]">
       <CreateTicketModal open={isModalOpen} onOpenChange={setIsModalOpen} />
+      <CreateEmailModal open={isEmailModalOpen} onOpenChange={setIsEmailModalOpen} />
+      <CreateMessageModal open={isMessageModalOpen} onOpenChange={setIsMessageModalOpen} />
+      <CreateContactModal open={isContactModalOpen} onOpenChange={setIsContactModalOpen} />
 
       {/* Primary Top Row Header */}
       <TicketFilters
@@ -92,6 +101,9 @@ export function TicketsPage() {
         onFiltersChange={(f) => { setFilters(f); setCurrentPage(1); }}
         totalTickets={processedTickets.length}
         onNewTicket={() => setIsModalOpen(true)}
+        onNewEmail={() => setIsEmailModalOpen(true)}
+        onNewMessage={() => setIsMessageModalOpen(true)}
+        onNewContact={() => setIsContactModalOpen(true)}
       />
 
       {/* ── DETAIL VIEW: ticket is selected ── */}
