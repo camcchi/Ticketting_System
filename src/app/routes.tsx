@@ -8,6 +8,7 @@ import { FreddyInsightsPage } from "./pages/FreddyInsightsPage";
 import { ContactsPage } from "./pages/ContactsPage";
 import { CompaniesPage } from "./pages/CompaniesPage";
 import { AdminPage } from "./pages/AdminPage";
+import { CustomerPortalPage } from "./pages/CustomerPortalPage";
 
 export const router = createBrowserRouter([
   {
@@ -25,5 +26,9 @@ export const router = createBrowserRouter([
       { path: "admin", Component: AdminPage },
       { path: "settings", Component: SettingsPage },
     ],
+  },
+  {
+    path: "/portal",
+    Component: CustomerPortalPage,
   },
 ]);

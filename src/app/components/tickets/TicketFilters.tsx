@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { FilterOptions } from "../../types";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -38,6 +39,7 @@ export function TicketFilters({
   onNewCompany,
   onInviteAgents
 }: TicketFiltersProps) {
+  const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [shortcutsEnabled, setShortcutsEnabled] = useState(true);
 
@@ -159,12 +161,13 @@ export function TicketFilters({
               <div className="py-1">
                 {[
                   { label: "Profile settings" },
-                  { label: "Go to customer portal" },
+                  { label: "Go to customer portal", onClick: () => navigate("/portal") },
                   { label: "Schedule out of office" },
                   { label: "Sign out" },
                 ].map((item) => (
                   <DropdownMenuItem
                     key={item.label}
+                    onClick={item.onClick}
                     className="w-full px-3 py-2.5 text-[14px] text-slate-700 hover:text-slate-900 hover:bg-slate-50 cursor-pointer outline-none transition-colors rounded-lg"
                   >
                     {item.label}
