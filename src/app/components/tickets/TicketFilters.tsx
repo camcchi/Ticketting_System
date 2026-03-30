@@ -145,9 +145,6 @@ export function TicketFilters({
               <div className="flex items-start justify-between px-3 py-3">
                 <div className="flex flex-col gap-1">
                   <p className="text-[14px] text-slate-800 font-medium">Keyboard shortcuts</p>
-                  <p className="text-[13px] leading-tight text-slate-500 whitespace-nowrap">
-                    press <span className="font-bold text-slate-800">?</span> to view <button className="text-[#2D4E77] font-medium hover:underline">shortcuts</button>
-                  </p>
                 </div>
                 <button 
                   onClick={() => setShortcutsEnabled(!shortcutsEnabled)}
