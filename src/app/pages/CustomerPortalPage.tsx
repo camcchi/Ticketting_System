@@ -19,17 +19,17 @@ export function CustomerPortalPage() {
 
           {/* Navigation links */}
           <nav className="flex items-center gap-6">
-            <button className="text-[14px] font-bold text-[#0F2D40] border-b-2 border-[#0F2D40] h-16 px-1 flex items-center">
+            <button className="text-[14px] font-bold text-[#06402B] border-b-2 border-[#06402B] h-16 px-1 flex items-center">
               Home
             </button>
-            <button className="text-[14px] font-medium text-slate-600 hover:text-[#0F2D40] transition-colors">
+            <button className="text-[14px] font-medium text-slate-600 hover:text-[#06402B] transition-colors">
               Tickets
             </button>
           </nav>
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="text-[13px] font-medium text-[#0F2D40] border border-slate-200 rounded px-4 py-1.5 hover:bg-slate-50 transition-colors shadow-sm">
+          <button className="text-[13px] font-medium text-[#06402B] border border-slate-200 rounded px-4 py-1.5 hover:bg-slate-50 transition-colors shadow-sm">
             Submit a ticket
           </button>
           <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm shadow-inner">
@@ -39,7 +39,7 @@ export function CustomerPortalPage() {
       </header>
 
       {/* ── Hero Section ── */}
-      <section className="bg-[#0F2D40] py-16 px-4 flex flex-col items-center justify-center text-center">
+      <section className="bg-[#06402B] py-16 px-4 flex flex-col items-center justify-center text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-8 tracking-tight">
           Hi, how can we help you?
         </h1>
@@ -49,7 +49,7 @@ export function CustomerPortalPage() {
             placeholder="Enter the search term here...."
             className="w-full bg-white rounded-md pl-4 pr-12 py-4 text-[15px] text-slate-800 placeholder:text-slate-400 focus:outline-none shadow-2xl transition-all focus:ring-2 focus:ring-[#3B82F6]/50"
           />
-          <button className="absolute right-0 top-0 bottom-0 px-5 bg-[#E6E8EC] rounded-r-md text-slate-500 hover:text-[#0F2D40] transition-colors">
+          <button className="absolute right-0 top-0 bottom-0 px-5 bg-[#E6E8EC] rounded-r-md text-slate-500 hover:text-[#06402B] transition-colors">
             <Search className="w-5 h-5" />
           </button>
         </div>
@@ -69,7 +69,7 @@ export function CustomerPortalPage() {
                </div>
             </div>
             <div className="flex flex-col gap-1.5">
-              <h3 className="text-[16px] font-bold text-[#0F2D40] group-hover:text-[#2D4E77] transition-colors">View all tickets</h3>
+              <h3 className="text-[16px] font-bold text-[#06402B] group-hover:text-[#2D4E77] transition-colors">View all tickets</h3>
               <p className="text-[13px] text-slate-500 leading-relaxed">
                 Track all your ticket's progress and your interaction with the support team
               </p>
@@ -87,7 +87,7 @@ export function CustomerPortalPage() {
               </div>
             </div>
             <div className="flex flex-col gap-1.5">
-              <h3 className="text-[16px] font-bold text-[#0F2D40] group-hover:text-[#2D4E77] transition-colors">Submit a ticket</h3>
+              <h3 className="text-[16px] font-bold text-[#06402B] group-hover:text-[#2D4E77] transition-colors">Submit a ticket</h3>
               <p className="text-[13px] text-slate-500 leading-relaxed">
                 Describe your issue by filling out the support ticket form
               </p>
@@ -97,7 +97,7 @@ export function CustomerPortalPage() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-[#1E293B] py-3 text-center border-t border-slate-800">
+      <footer className="bg-[#06402B] py-3 text-center border-t border-slate-800">
         <p className="text-[12px] text-slate-400">
           Helpdesk Software by <button className="hover:text-white transition-colors underline decoration-slate-600">DT I.T. Solutions and Consultancy</button> | <button className="hover:text-white transition-colors">Cookie policy</button>
         </p>
