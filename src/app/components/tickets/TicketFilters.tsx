@@ -24,6 +24,7 @@ interface TicketFiltersProps {
   onNewMessage?: () => void;
   onNewContact?: () => void;
   onNewCompany?: () => void;
+  onInviteAgents?: () => void;
 }
 
 export function TicketFilters({ 
@@ -34,7 +35,8 @@ export function TicketFilters({
   onNewEmail,
   onNewMessage,
   onNewContact,
-  onNewCompany
+  onNewCompany,
+  onInviteAgents
 }: TicketFiltersProps) {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [shortcutsEnabled, setShortcutsEnabled] = useState(true);
@@ -98,7 +100,7 @@ export function TicketFilters({
                 { label: "Message", Icon: MessageSquare, onClick: () => setTimeout(() => onNewMessage?.(), 0) },
                 { label: "Contact", Icon: User,          onClick: () => setTimeout(() => onNewContact?.(), 0) },
                 { label: "Company", Icon: Building2,     onClick: () => setTimeout(() => onNewCompany?.(), 0) },
-                { label: "Agent",   Icon: UserCheck,     onClick: () => {} },
+                { label: "Agent",   Icon: UserCheck,     onClick: () => setTimeout(() => onInviteAgents?.(), 0) },
               ].map(({ label, Icon, onClick }) => (
                 <DropdownMenuItem
                   key={label}
