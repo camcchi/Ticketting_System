@@ -116,7 +116,7 @@ export function CreateTicketModal({ open, onOpenChange }: CreateTicketModalProps
               <div className="absolute top-0 left-0 w-full h-2 bg-[#137A87]" />
               <div className="flex justify-between items-start px-8 pt-8 pb-4">
                 <Dialog.Title className="text-2xl font-semibold text-slate-800">
-                  SupportDesk Ticket Creation
+                  A.S.S.I.S.T Ticket Creation
                 </Dialog.Title>
                 <Dialog.Close className="w-8 h-8 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-200/50 hover:text-slate-800 transition-colors shrink-0 -mt-2 -mr-2">
                   <X className="w-5 h-5" />

@@ -23,7 +23,7 @@ export function ImportContactsModal({ children }: { children: React.ReactNode })
         
         <div className="px-6 py-4 flex flex-col gap-6">
           <p className="text-sm text-slate-700 leading-relaxed">
-            From here, you can import contacts into SupportDesk using a CSV. Take a look at{" "}
+            From here, you can import contacts into A.S.S.I.S.T using a CSV. Take a look at{" "}
             <a href="#" className="text-[#137A87] hover:underline">this article</a>{" "}
             before you prepare the CSV file for importing. Make sure the CSV is encoded in UTF-8 and
             the header row has the contact labels listed (name, email, etc.)
@@ -43,7 +43,7 @@ export function ImportContactsModal({ children }: { children: React.ReactNode })
               <div className="flex flex-col gap-1.5">
                 <h4 className="text-[15px] font-semibold text-[#0B3A42]">Important note</h4>
                 <ul className="list-disc pl-5 text-sm text-slate-600 space-y-1">
-                  <li>If an existing contact is found in the CSV file, their information will be updated in SupportDesk</li>
+                  <li>If an existing contact is found in the CSV file, their information will be updated in A.S.S.I.S.T</li>
                 </ul>
               </div>
             </div>

@@ -40,15 +40,15 @@ export function Sidebar() {
       <div className="p-3.5 border-b border-white/10 flex items-center justify-start h-16 w-64 overflow-hidden">
         <div className="flex items-center w-full h-full">
           <img 
-            src="/logo.jpeg" 
-            alt="Brand Logo" 
-            className="h-8 max-w-[200px] object-contain object-left flex-shrink-0"
+            src="/assist_logo.jpg" 
+            alt="ASSIST Logo" 
+            className="h-10 max-w-[180px] object-contain object-left flex-shrink-0"
           />
           <span className={cn(
             "ml-3 font-bold text-[19px] text-white tracking-wide transition-opacity duration-300 whitespace-nowrap",
             isContactsOpen ? "opacity-100" : "opacity-0 group-hover:opacity-100"
           )}>
-            SupportDesk
+            A.S.S.I.S.T
           </span>
         </div>
       </div>
